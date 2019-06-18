@@ -28,6 +28,8 @@ public class Match {
 	 * @param ftag
 	 * @param ftr
 	 */
+	
+	
 	public Match(int id, Season season, String div, LocalDate date, Team homeTeam, Team awayTeam, int fthg, int ftag,
 			String ftr) {
 		super();

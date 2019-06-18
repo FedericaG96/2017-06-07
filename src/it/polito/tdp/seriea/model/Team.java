@@ -1,8 +1,10 @@
 package it.polito.tdp.seriea.model;
 
-public class Team {
+public class Team implements Comparable<Team>{
 	
 	private String team ;
+	
+	private int punti;
 
 	public Team(String team) {
 		super();
@@ -23,14 +25,7 @@ public class Team {
 		this.team = team;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		return team;
-	}
-
+	
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
 	 */
@@ -40,6 +35,12 @@ public class Team {
 		int result = 1;
 		result = prime * result + ((team == null) ? 0 : team.hashCode());
 		return result;
+	}
+
+	public Team(String team, int punti) {
+		super();
+		this.team = team;
+		this.punti = punti;
 	}
 
 	/* (non-Javadoc)
@@ -60,6 +61,24 @@ public class Team {
 		} else if (!team.equals(other.team))
 			return false;
 		return true;
+	}
+
+	public int getPunti() {
+		return punti;
+	}
+
+	public void setPunti(int punti) {
+		this.punti = punti;
+	}
+
+	@Override
+	public int compareTo(Team o) {
+		return o.getPunti()- this.getPunti();
+	}
+
+	@Override
+	public String toString() {
+		return String.format("%s: %s", team, punti);
 	}
 	
 	
